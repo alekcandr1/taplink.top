@@ -6,7 +6,7 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="js/script.js"></script> -->
+    <script src="js/script.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,7 +74,7 @@
                 <h1>Дизайн и разработка<br><span>мобильных</span> сайтов<br>для соц. сетей</h1>
                 <p>Сделаем уникальный сайт, который выделит вас среди конкурентов и повысит продажи</p>
             </div>
-            <p id="btn" class=btn>Начать общение</p>
+            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Начать общение</p>
 
         </div>
     </header>
@@ -101,28 +101,6 @@
 
     <!-- Работая совместно -->
 
-<!-- 
-    <div class="horizontal-scroll-wrapper squares">
-      <div>item 1</div>
-      <div>item 2</div>
-      <div>item 3</div>
-      <div>item 4</div>
-      <div>item 5</div>
-      <div>item 6</div>
-      <div>item 7</div>
-      <div>item 8</div>
-    </div>
-    
-    <div class="horizontal-scroll-wrapper  rectangles">
-      <div>item 1</div>
-      <div>item 2</div>
-      <div>item 3</div>
-      <div>item 4</div>
-      <div>item 5</div>
-      <div>item 6</div>
-      <div>item 7</div>
-      <div>item 8</div>
-    </div> -->
 
 
 
@@ -149,25 +127,6 @@
 
         </div>
     </section>
-
-    <script>
-        var vmsElements = document.querySelectorAll('.vms');
-    
-        vmsElements.forEach(function (vmsElement) {
-          var hammer = new Hammer(vmsElement);
-          
-          hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-    
-          hammer.on('swipe', function (event) {
-            // Изменяем положение горизонтального скролла в зависимости от направления свайпа
-            if (event.direction === Hammer.DIRECTION_DOWN || event.direction === Hammer.DIRECTION_UP) {
-              vmsElement.scrollTop += event.deltaY;
-            } else if (event.direction === Hammer.DIRECTION_LEFT || event.direction === Hammer.DIRECTION_RIGHT) {
-              vmsElement.scrollLeft += event.deltaX;
-            }
-          });
-        });
-      </script>
 
 
     <!-- Кому нужен + Примеры -->
@@ -205,7 +164,24 @@
                 </div>
 
             </div>
-            <p id="btn" class=btn>Оставить заявку</p>
+            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Оставить заявку</p>
+
+            <div class="overlay" id="overlay"></div>
+
+            <div class="popup" id="popup1">
+                <div class="popup-content">
+                    <span class="close-button" data-popup-id="popup1">&times;</span>
+
+                    <p class="popup-head">Напишите нам:</p>
+                    <div class="pop-btns">
+                        <a href="#" class="viber">Viber</a>
+                        <a href="#" class="telegram">Telegram</a>
+                        <a href="#" class="whatsapp">WhatsApp</a>
+
+                    </div>
+
+                </div>
+            </div>
 
         </div>
     </section>
@@ -276,7 +252,7 @@
                     </div>
                 </div>
             </div>
-            <p id="btn" class=btn>Заказать</p>
+            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Заказать</p>
         </div>
         <div class="price">
             <div class="titles">
@@ -340,7 +316,7 @@
                     </div>
                 </div>
             </div>
-            <p id="btn" class=btn>Заказать</p>
+            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Заказать</p>
         </div>
 
     </section>
@@ -408,10 +384,10 @@
 
         <h2>Свяжитесь с нами</h2>
         <div class="buttons">
-            <a href="#" class="viber">Viber</a>
+            <a href="viber://add?number=375293095619" class="viber">Viber</a>
             <div class="buttons2">
-                <a href="#" class="telegram">Telegram</a>
-                <a href="#" class="whatsapp">WhatsApp</a>
+                <a href="https://t.me/+375293095619" class="telegram">Telegram</a>
+                <a href="https://api.whatsapp.com/send/?phone=375293095619" class="whatsapp">WhatsApp</a>
             </div>
         </div>
         <div class="footer">
