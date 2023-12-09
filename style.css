@@ -51,6 +51,7 @@ body {
     margin: auto;
     max-width: 800px;
     width: 100%;
+    min-width: 375px;
 }
 
 
@@ -65,13 +66,132 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: 600;
-    font-size: 26px;
+    font-size: 28px;
     padding-left: 0px;
     line-height: 105%;
 
 }
 
 /* individual css */
+
+
+/* Burger menu */
+.image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+#menu__toggle {
+    opacity: 0;
+    display: none;
+  }
+  
+  #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+  }
+  
+  .menu__btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* top: 25px;
+    right: 20px; */
+  
+    width: 31px;
+    height: 31px;
+  
+    cursor: pointer;
+    z-index: 11;
+  }
+  
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+  
+    width: 100%;
+    height: 2px;
+  
+    background-color: #313734;
+  
+    transition-duration: .25s;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  
+  .menu__box {
+    color: #313734;
+
+    z-index: 10;
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    right: -100%;
+  
+    width: 100%;
+    height: 100%;
+  
+    margin: 0;
+    padding: 80px 0;
+  
+    list-style: none;
+  
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  
+    transition-duration: .25s;
+  }
+  
+  .menu__item {
+    text-align: center;
+    display: block;
+    padding: 7px 24px;
+  
+    color: #313734;
+  
+    font-size: 18px;
+  
+    text-decoration: none;
+  
+    transition-duration: .25s;
+  }
+  .menu__item:hover {
+    background-color: #CFD8DC;
+  }
+
+/* end */
+
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/myfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal
+}
+.fnt {
+    font-size: 23px;
+    font-family: 'MyFont', Arial, sans-serif;
+}
 h2 {
     text-align: center;
     font-size: 20px;
@@ -180,8 +300,6 @@ h1>span {
     background-image: url('img/bg2.png');
     background-repeat: no-repeat;
     background-position: left bottom;
-    background-size: ;
-
 }
 
 .dia1,
@@ -257,8 +375,11 @@ h1>span {
 
 }
 
-/* Вместе */
+/* Работая совместно */
+
+
 #vmeste {
+    overflow-x: scroll;
     display: flex;
     padding: 50px 20px;
     flex-direction: column;
@@ -287,10 +408,12 @@ h1>span {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 3px;
+    align-self: flex-start;
 }
 
 .vm1 {
     display: flex;
+    min-width: 200px;
     width: fit-content;
     transform: rotate(-4.077deg);
     padding: 25px 30px;
@@ -302,6 +425,82 @@ h1>span {
     text-align: center;
     gap: 20px;
 }
+
+
+
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+  }
+
+  .vms {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+  }
+
+  .content {
+    width: 200%; /* Пример контента, который можно прокручивать горизонтально */
+    background-color: #ddd;
+  }
+/* 
+::-webkit-scrollbar{width:2px;height:2px;}
+::-webkit-scrollbar-button{width:2px;height:2px;}
+
+div{
+  box-sizing:border-box;
+}
+
+
+.horizontal-scroll-wrapper{
+  display:block;
+  top:0;
+  left:0;
+  width:80px;
+  max-height:500px;
+  margin:0;
+  background:#abc;
+  overflow-y:auto;
+  overflow-x:hidden;
+  transform:rotate(-90deg) translateY(-80px);
+  transform-origin:right top;
+}
+.horizontal-scroll-wrapper > div{
+  display:block;
+  padding:5px;
+  background:#cab;
+  transform:rotate(90deg);
+  transform-origin: right top;
+}
+
+.squares{
+  padding:60px 0 0 0;
+}
+
+.squares > div{
+  width:60px;
+  height:60px;
+  margin:10px;
+}
+
+.rectangles{
+  top:100px;
+  padding:100px 0 0 0;
+}
+.rectangles > div{
+  width:140px;
+  height:60px;
+  margin:50px 10px;
+  padding:5px;
+  background:#cab;
+  transform:rotate(90deg) translateY(80px);
+  transform-origin: right top;
+} */
+
+
+
 
 /* Кому нужен и примеры */
 #komy {
@@ -432,7 +631,7 @@ h1>span {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     background: #3A3A3A;
 }
 
@@ -544,7 +743,7 @@ h1>span {
 
 #vazhn-wrap {
     padding: 0;
-    background: #3A3A3A;
+    /* background: #3A3A3A; */
 }
 
 .vazhn {
@@ -610,6 +809,9 @@ h1>span {
 
 /* Контакты */
 #contact {
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px 20px 0 0;
     display: flex;
     width: 100%;
     padding: 50px 20px 30px 20px;
@@ -685,4 +887,28 @@ h1>span {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+#contact .blur5 {
+    width: 184px;
+    height: 215px;
+    position: absolute;
+    right: -80px;
+    top: 160px;
+    background-color: rgba(239, 81, 33, 0.25);
+    filter: blur(100px);
+    border-radius: 100%;
+
+
+}
+#contact .blur6 {
+    width: 184px;
+    height: 215px;
+    position: absolute;
+    left: -80px;
+    top: -50px;
+    background-color: rgba(255, 249, 102, 0.15);
+    filter: blur(100px);
+    border-radius: 100%;
+
 }

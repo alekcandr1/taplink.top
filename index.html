@@ -7,27 +7,68 @@
     <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi">
     <link rel="stylesheet" href="style.css">
     <!-- <script src="js/script.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 </head>
 
 <body>
+
     <div class="temn-fon"></div>
     <div class="clear"></div>
 
     <!-- Бургер -->
-    <header>
-        <div class="burger">
+    <header class="">
+        <!-- <div class="burger">
             <div class="lines">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+        </div> -->
+        <div class="image-wrapper">
+            <!-- <a class="ib burger" href="#"><img src="img/burger.png" alt=""></a> -->
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+
+                <ul class="menu__box">
+                    <li><a class="menu__item" href="#vmeste">Почему мы</a></li>
+                    <li><a class="menu__item" href="#komy">Кому делаем</a></li>
+                    <li><a class="menu__item" href="#primery">Примеры работ</a></li>
+                    <li><a class="menu__item" href="#prices">Цены</a></li>
+                    <!-- <li><a class="menu__item" href="#vazhn-wrap">Важные моменты</a></li> -->
+                    <li><a class="menu__item" href="#contact">Контакты</a></li>
+                    </li>
+                </ul>
+
+            </div>
+            <script>
+                const menuItems = document.querySelectorAll('.menu__item');
+                const menuToggle = document.getElementById('menu__toggle');
+
+                // Обработчик события для скрытия меню
+                function hideMenu() {
+                    menuToggle.checked = false;
+                }
+
+                // Добавляем обработчик события на каждый пункт меню
+                menuItems.forEach((menuItem) => {
+                    menuItem.addEventListener('click', hideMenu);
+                });
+            </script>
+
+
         </div>
+
+
         <div class="h1-headers">
             <div class="headers-heads">
                 <h1>Дизайн и разработка<br><span>мобильных</span> сайтов<br>для соц. сетей</h1>
@@ -39,7 +80,7 @@
     </header>
 
     <!-- Диалог -->
-    <section id="dialogs">
+    <section id="dialogs" class="">
         <div class="dia1">
             <div class="msg">
                 <p>Привет, меня зовут Аня. <br>
@@ -59,21 +100,78 @@
     </section>
 
     <!-- Работая совместно -->
-    <section id="vmeste">
+
+<!-- 
+    <div class="horizontal-scroll-wrapper squares">
+      <div>item 1</div>
+      <div>item 2</div>
+      <div>item 3</div>
+      <div>item 4</div>
+      <div>item 5</div>
+      <div>item 6</div>
+      <div>item 7</div>
+      <div>item 8</div>
+    </div>
+    
+    <div class="horizontal-scroll-wrapper  rectangles">
+      <div>item 1</div>
+      <div>item 2</div>
+      <div>item 3</div>
+      <div>item 4</div>
+      <div>item 5</div>
+      <div>item 6</div>
+      <div>item 7</div>
+      <div>item 8</div>
+    </div> -->
+
+
+
+    <section id="vmeste" class="">
         <h2>
             Работая <span class="fnt">совместно</span> у нас<br>получаются сайты, у которых:
         </h2>
         <div class="vms">
-            <div class="vm1">
-                <h3>Понятная структура<br>(UX)</h3>
-                <p>Посетитель быстро найдёт<br>нужную ему информацию.</p>
+            <div class="content">
+                <div class="vm1">
+                    <h3>Понятная структура<br>(UX)</h3>
+                    <p>Посетитель быстро найдёт<br>нужную ему информацию.</p>
+                </div>
+                <div class="vm1">
+                    <h3>Понятная структура<br>(UX)</h3>
+                    <p>Посетитель быстро найдёт<br>нужную ему информацию.</p>
+                </div>
+                <div class="vm1">
+                    <h3>Понятная структура<br>(UX)</h3>
+                    <p>Посетитель быстро найдёт<br>нужную ему информацию.</p>
+                </div>
+    
             </div>
 
         </div>
     </section>
 
+    <script>
+        var vmsElements = document.querySelectorAll('.vms');
+    
+        vmsElements.forEach(function (vmsElement) {
+          var hammer = new Hammer(vmsElement);
+          
+          hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+    
+          hammer.on('swipe', function (event) {
+            // Изменяем положение горизонтального скролла в зависимости от направления свайпа
+            if (event.direction === Hammer.DIRECTION_DOWN || event.direction === Hammer.DIRECTION_UP) {
+              vmsElement.scrollTop += event.deltaY;
+            } else if (event.direction === Hammer.DIRECTION_LEFT || event.direction === Hammer.DIRECTION_RIGHT) {
+              vmsElement.scrollLeft += event.deltaX;
+            }
+          });
+        });
+      </script>
+
+
     <!-- Кому нужен + Примеры -->
-    <section id="komy">
+    <section id="komy" class="">
         <div class="blur1"></div>
         <div class="blur2"></div>
         <div class="komy">
@@ -81,11 +179,13 @@
                 <span class="fnt">Кому нужен</span> мобильный сайт
             </h2>
             <p>
-                Если вы эксперт, или продаёте свои услуги/товары через <span>инстаграм и другие соц. сети</span>, то мобильный сайт — отличная возможность <span>красиво и структурировано</span> оформить информацию в одном месте.
+                Если вы эксперт, или продаёте свои услуги/товары через <span>инстаграм и другие соц. сети</span>, то
+                мобильный сайт — отличная возможность <span>красиво и структурировано</span> оформить информацию в одном
+                месте.
             </p>
-    
+
         </div>
-        <div class="primery pt50">
+        <div class="primery pt50" id="primery">
             <h2>
                 Вот <span class="fnt">примеры</span> наших<br>
                 последних работ:
@@ -95,15 +195,15 @@
                 <p class="title">Сайт инструктора по плаванию<br>для Instagram</p>
                 <div class="arrows">
                     <div class="nav">
-                         <img class="prev" src="img/arr.png" alt="Предыдущий">                     
-                         <img class="next" src="img/arr.png" alt="Следующий">                     
+                        <img class="prev" src="img/arr.png" alt="Предыдущий">
+                        <img class="next" src="img/arr.png" alt="Следующий">
                     </div>
                     <a class="link-key">
                         <span>Смотреть кейс</span>
                         <img src="img/arr2.png" alt="Смотреть кейс">
                     </a>
                 </div>
-    
+
             </div>
             <p id="btn" class=btn>Оставить заявку</p>
 
@@ -111,16 +211,16 @@
     </section>
 
     <!-- Сколько стоит -->
-    <section id="prices">
+    <section id="prices" class="">
         <h2>
-            Сколько <span class="fnt">стоит</span> 
+            Сколько <span class="fnt">стоит</span>
         </h2>
         <div class="price">
             <div class="titles">
                 <h3 class="title">Одностраничный сайт</h3>
                 <p class="desc">
-                    Состоит 4-8 блоков, включает презентацию вас, ваших услуг/товаров, ссылки на ваши контакты.  
-                </p>    
+                    Состоит 4-8 блоков, включает презентацию вас, ваших услуг/товаров, ссылки на ваши контакты.
+                </p>
             </div>
             <p class="rub">190 р.</p>
             <div class="items-wrap">
@@ -128,37 +228,49 @@
                 <div class="items">
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Анализ ниши и поиск интересных решений</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Разработка структуры и логики сайта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Проработка текстов</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Создание дизайн-концепта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Верстка и реализация всех необходимых технических работ для запуска сайта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Установка аналитики для анализа посещаемости</p>
                     </div>
@@ -170,8 +282,9 @@
             <div class="titles">
                 <h3 class="title">Многостраничный сайт</h3>
                 <p class="desc">
-                    Состоит 2-5 страниц по 4-8 блоков, включает презентацию вас, ваших услуг/товаров, ссылки на ваши контакты.
-                </p>    
+                    Состоит 2-5 страниц по 4-8 блоков, включает презентацию вас, ваших услуг/товаров, ссылки на ваши
+                    контакты.
+                </p>
             </div>
             <p class="rub">290 р.</p>
             <div class="items-wrap">
@@ -179,37 +292,49 @@
                 <div class="items">
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Анализ ниши и поиск интересных решений</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Разработка структуры и логики сайта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Проработка текстов</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Создание дизайн-концепта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Верстка и реализация всех необходимых технических работ для запуска сайта</p>
                     </div>
                     <div class="item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="9" viewBox="0 0 12 9" fill="none">
-                            <path d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z" fill="#484444"/>
+                            <path
+                                d="M4.243 5.84011L1.414 3.01211L0 4.42611L4.243 8.66911L11.313 1.59811L9.9 0.183105L4.243 5.84011Z"
+                                fill="#484444" />
                         </svg>
                         <p>Установка аналитики для анализа посещаемости</p>
                     </div>
@@ -221,7 +346,7 @@
     </section>
 
     <!-- Важные моменты -->
-    <section id="vazhn-wrap">
+    <section id="vazhn-wrap" class="">
         <div class="vazhn">
             <div class="blur3"></div>
             <div class="blur4"></div>
@@ -232,47 +357,55 @@
             <div class="items">
                 <div class="item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 7 8" fill="none">
-                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)"/>
+                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)" />
                         <defs>
-                          <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317" y2="3.20957" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EF5121"/>
-                            <stop offset="1" stop-color="#F65221" stop-opacity="0.79"/>
-                          </linearGradient>
+                            <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317"
+                                y2="3.20957" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#EF5121" />
+                                <stop offset="1" stop-color="#F65221" stop-opacity="0.79" />
+                            </linearGradient>
                         </defs>
                     </svg>
                     <p>Услуги сервиса Таплинк оплачиваются отдельно (~40р/год)</p>
                 </div>
                 <div class="item">
                     <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 7 8" fill="none">
-                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)"/>
+                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)" />
                         <defs>
-                          <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317" y2="3.20957" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EF5121"/>
-                            <stop offset="1" stop-color="#F65221" stop-opacity="0.79"/>
-                          </linearGradient>
+                            <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317"
+                                y2="3.20957" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#EF5121" />
+                                <stop offset="1" stop-color="#F65221" stop-opacity="0.79" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <p>Для начала работы от вас нужны тексты и фото, а также пожелания по цветам, стилю, примеры
+                        понравившихся работ</p>
+                </div>
+
+                <div class="item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 7 8" fill="none">
+                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317"
+                                y2="3.20957" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#EF5121" />
+                                <stop offset="1" stop-color="#F65221" stop-opacity="0.79" />
+                            </linearGradient>
                         </defs>
                     </svg>
                     <p>В своих работах мы размещаем ссылку на свой сайт</p>
                 </div>
-                <div class="item">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="8" viewBox="0 0 7 8" fill="none">
-                        <circle cx="3.5" cy="4.41138" r="3.5" fill="url(#paint0_linear_295_347)"/>
-                        <defs>
-                          <linearGradient id="paint0_linear_295_347" x1="0.714297" y1="2.4322" x2="7.00317" y2="3.20957" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#EF5121"/>
-                            <stop offset="1" stop-color="#F65221" stop-opacity="0.79"/>
-                          </linearGradient>
-                        </defs>
-                    </svg>
-                    <p>Для начала работы предоставьте тексты и фото, а также пожелания по цветам, стилю, примеры понравившихся работ</p>
-                </div>
             </div>
-    
+
         </div>
     </section>
 
     <!-- Контакты -->
-    <section id="contact">
+    <section id="contact" class="">
+        <div class="blur5"></div>
+        <div class="blur6"></div>
+
         <h2>Свяжитесь с нами</h2>
         <div class="buttons">
             <a href="#" class="viber">Viber</a>
@@ -283,7 +416,8 @@
         </div>
         <div class="footer">
             <p>© 2023 Taplink.top<br>Разработка мобильных сайтов для социальных сетей.</p>
-            <p>Все материалы данного сайта являются объектами авторского права. Запрещается любое использование информации и объектов без согласия правообладателя.</p>
+            <p>Все материалы данного сайта являются объектами авторского права. Запрещается любое использование
+                информации и объектов без согласия правообладателя.</p>
         </div>
     </section>
 

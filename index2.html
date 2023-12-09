@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Script</title>
+  <!-- Подключаем jQuery (замените URL на актуальную версию) -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content,
+    .content2 {
+      width: 100%;
+      height: 1000px;
+      /* Высота вашего контента */
+      background-color: beige;
+    }
+
+    .horizontal-scroll-container {
+      overflow-x: scroll;
+      width: 2000px;
+      height: 200px;
+      background-color: aquamarine;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ваш контент перед горизонтальной прокруткой -->
+  <div class="content">
+    <!-- Ваш контент здесь -->1
+  </div>
+
+  <!-- Блок с горизонтальной прокруткой -->
+  <div class="horizontal-scroll-container">
+    <!-- Ваш контент с горизонтальной прокруткой -->2
+  </div>
+
+  <div class="content2">
+    <!-- Ваш контент здесь -->1
+  </div>
+
+  <script>
+    // Флаг для отслеживания режима прокрутки
+    let isHorizontalScroll = false;
+
+    // Функция для выполнения прокрутки
+    function scrollPage() {
+      // Листаем вниз
+      if (!isHorizontalScroll) {
+        window.scrollBy(0, window.innerHeight);
+      }
+
+      // Проверяем, есть ли блок с горизонтальной прокруткой
+      const horizontalScrollBlock = $(".horizontal-scroll-container")[0];
+
+      if (horizontalScrollBlock) {
+        // Проверяем, достигнут ли конец блока с горизонтальной прокруткой
+        if (horizontalScrollBlock.scrollLeft + horizontalScrollBlock.clientWidth >= horizontalScrollBlock.scrollWidth) {
+          isHorizontalScroll = false; // Разрешаем вертикальную прокрутку
+        } else {
+          isHorizontalScroll = true; // Запрещаем вертикальную прокрутку
+        }
+
+        // Листаем вправо (горизонтально)
+        if (isHorizontalScroll) {
+          horizontalScrollBlock.scrollLeft += 10; // Измените значение на ваш выбор
+        }
+      }
+    }
+
+    // Обработчик события колесика мыши для контроля режима прокрутки
+    $(".horizontal-scroll-container").on("wheel", function (e) {
+      if (isHorizontalScroll) {
+        e.preventDefault(); // Запрещаем вертикальную прокрутку, если в режиме горизонтальной
+      }
+    });
+
+    // Вызываем функцию scrollPage после загрузки документа
+    $(document).ready(function () {
+      setInterval(scrollPage, 1000); // Вызывать каждую секунду (измените интервал по вашему усмотрению)
+    });
+  </script>
+
+</body>
+
+</html>
