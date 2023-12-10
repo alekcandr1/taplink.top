@@ -1134,3 +1134,57 @@ p.rub {
 }
 
 /* END */
+
+/* галерея */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.slider-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.gallery {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+}
+
+.arrows {
+    position: relative;
+    margin-top: 10px;
+}
+
+/* .nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+ */
+.prev,
+.next {
+    cursor: pointer;
+}
+
+.link-key {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.link-key img {
+    margin-left: 5px;
+}

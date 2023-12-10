@@ -101,9 +101,6 @@
 
     <!-- Работая совместно -->
 
-
-
-
     <section id="vmeste" class="">
         <h2>
             Работая <span class="fnt">совместно</span> у нас<br>получаются сайты, у которых:
@@ -128,7 +125,6 @@
         </div>
     </section>
 
-
     <!-- Кому нужен + Примеры -->
     <section id="komy" class="">
         <div class="blur1"></div>
@@ -149,22 +145,98 @@
                 Вот <span class="fnt">примеры</span> наших<br>
                 последних работ:
             </h2>
-            <div class="gallery">
-                <img class="img" src="img/p1.png" alt="Сайт инструктора по плаванию">
-                <p class="title">Сайт инструктора по плаванию<br>для Instagram</p>
-                <div class="arrows">
-                    <div class="nav">
-                        <img class="prev" src="img/arr.png" alt="Предыдущий">
-                        <img class="next" src="img/arr.png" alt="Следующий">
+            <div class="slider-container">
+                <div class="gallery gallery1">
+                    <img class="img" src="img/p1.png" alt="Сайт инструктора по плаванию">
+                    <p class="title">Сайт инструктора по плаванию<br>для Instagram</p>
+                    <div class="arrows">
+                        <div class="nav">
+                            <img class="prev" src="img/arr.png" alt="Предыдущий">
+                            <img class="next" src="img/arr.png" alt="Следующий">
+                        </div>
+                        <a href="https://kid-kit.taplink.top/" class="link-key">
+                            <span>Смотреть кейс</span>
+                            <img src="img/arr2.png" alt="Смотреть кейс">
+                        </a>
                     </div>
-                    <a class="link-key">
-                        <span>Смотреть кейс</span>
-                        <img src="img/arr2.png" alt="Смотреть кейс">
-                    </a>
+    
                 </div>
-
+                <div class="gallery gallery2">
+                    <img class="img" src="img/p2.png" alt="Сайт инструктора по плаванию">
+                    <p class="title">Сайт тренера по ЛФК и реабилитации<br>для Instagram</p>
+                    <div class="arrows">
+                        <div class="nav">
+                            <img class="prev" src="img/arr.png" alt="Предыдущий">
+                            <img class="next" src="img/arr.png" alt="Следующий">
+                        </div>
+                        <a href="https://lfk.atrokhava.taplink.top/" class="link-key">
+                            <span>Смотреть кейс</span>
+                            <img src="img/arr2.png" alt="Смотреть кейс">
+                        </a>
+                    </div>
+    
+                </div>
+                <div class="gallery gallery3">
+                    <img class="img" src="img/p3.png" alt="Сайт инструктора по плаванию">
+                    <p class="title">Сайт мастера-бровиста<br>для Instagram и TikTok</p>
+                    <div class="arrows">
+                        <div class="nav">
+                            <img class="prev" src="img/arr.png" alt="Предыдущий">
+                            <img class="next" src="img/arr.png" alt="Следующий">
+                        </div>
+                        <!-- <a class="link-key">
+                            <span>Смотреть кейс</span>
+                            <img src="img/arr2.png" alt="Смотреть кейс">
+                        </a> -->
+                    </div>
+    
+                </div>
             </div>
-            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Оставить заявку</p>
+            
+            
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const galleries = document.querySelectorAll('.gallery');
+    const prevButtons = document.querySelectorAll('.prev');
+    const nextButtons = document.querySelectorAll('.next');
+
+    let currentIndex = 0;
+
+    function showGallery(index) {
+        const translationValue = -index * 100 + '%';
+        galleries.forEach(gallery => {
+            gallery.style.transform = 'translateX(' + translationValue + ')';
+        });
+    }
+
+    function showNextGallery() {
+        currentIndex = (currentIndex + 1) % galleries.length;
+        showGallery(currentIndex);
+    }
+
+    function showPrevGallery() {
+        currentIndex = (currentIndex - 1 + galleries.length) % galleries.length;
+        showGallery(currentIndex);
+    }
+
+    prevButtons.forEach(button => {
+        button.addEventListener('click', showPrevGallery);
+    });
+
+    nextButtons.forEach(button => {
+        button.addEventListener('click', showNextGallery);
+    });
+});
+
+</script>
+
+
+
+
+
+<p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Оставить заявку</p>
 
             <div class="overlay" id="overlay"></div>
 
@@ -174,9 +246,9 @@
 
                     <p class="popup-head">Напишите нам:</p>
                     <div class="pop-btns">
-                        <a href="#" class="viber">Viber</a>
-                        <a href="#" class="telegram">Telegram</a>
-                        <a href="#" class="whatsapp">WhatsApp</a>
+                        <a href="viber://add?number=375293095619" class="viber" class="viber">Viber</a>
+                        <a href="https://t.me/+375293095619" class="telegram">Telegram</a>
+                        <a href="https://api.whatsapp.com/send/?phone=375293095619" class="whatsapp">WhatsApp</a>
 
                     </div>
 
