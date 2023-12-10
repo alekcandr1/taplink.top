@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -119,7 +119,7 @@
                     <h3>Понятная структура<br>(UX)</h3>
                     <p>Посетитель быстро найдёт<br>нужную ему информацию.</p>
                 </div>
-    
+
             </div>
 
         </div>
@@ -159,7 +159,7 @@
                             <img src="img/arr2.png" alt="Смотреть кейс">
                         </a>
                     </div>
-    
+
                 </div>
                 <div class="gallery gallery2">
                     <img class="img" src="img/p2.png" alt="Сайт инструктора по плаванию">
@@ -174,7 +174,7 @@
                             <img src="img/arr2.png" alt="Смотреть кейс">
                         </a>
                     </div>
-    
+
                 </div>
                 <div class="gallery gallery3">
                     <img class="img" src="img/p3.png" alt="Сайт инструктора по плаванию">
@@ -189,54 +189,54 @@
                             <img src="img/arr2.png" alt="Смотреть кейс">
                         </a> -->
                     </div>
-    
+
                 </div>
             </div>
-            
-            
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const galleries = document.querySelectorAll('.gallery');
-    const prevButtons = document.querySelectorAll('.prev');
-    const nextButtons = document.querySelectorAll('.next');
-
-    let currentIndex = 0;
-
-    function showGallery(index) {
-        const translationValue = -index * 100 + '%';
-        galleries.forEach(gallery => {
-            gallery.style.transform = 'translateX(' + translationValue + ')';
-        });
-    }
-
-    function showNextGallery() {
-        currentIndex = (currentIndex + 1) % galleries.length;
-        showGallery(currentIndex);
-    }
-
-    function showPrevGallery() {
-        currentIndex = (currentIndex - 1 + galleries.length) % galleries.length;
-        showGallery(currentIndex);
-    }
-
-    prevButtons.forEach(button => {
-        button.addEventListener('click', showPrevGallery);
-    });
-
-    nextButtons.forEach(button => {
-        button.addEventListener('click', showNextGallery);
-    });
-});
-
-</script>
 
 
 
 
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const galleries = document.querySelectorAll('.gallery');
+                    const prevButtons = document.querySelectorAll('.prev');
+                    const nextButtons = document.querySelectorAll('.next');
 
-<p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Оставить заявку</p>
+                    let currentIndex = 0;
+
+                    function showGallery(index) {
+                        const translationValue = -index * 100 + '%';
+                        galleries.forEach(gallery => {
+                            gallery.style.transform = 'translateX(' + translationValue + ')';
+                        });
+                    }
+
+                    function showNextGallery() {
+                        currentIndex = (currentIndex + 1) % galleries.length;
+                        showGallery(currentIndex);
+                    }
+
+                    function showPrevGallery() {
+                        currentIndex = (currentIndex - 1 + galleries.length) % galleries.length;
+                        showGallery(currentIndex);
+                    }
+
+                    prevButtons.forEach(button => {
+                        button.addEventListener('click', showPrevGallery);
+                    });
+
+                    nextButtons.forEach(button => {
+                        button.addEventListener('click', showNextGallery);
+                    });
+                });
+
+            </script>
+
+
+
+
+
+            <p id="btn" class="btn card_btn open-popup-button" data-popup-id="popup1">Оставить заявку</p>
 
             <div class="overlay" id="overlay"></div>
 
@@ -469,6 +469,28 @@
         </div>
     </section>
 
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(95831185, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/95831185" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </body>
 
 </html>
