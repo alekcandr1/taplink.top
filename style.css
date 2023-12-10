@@ -48,7 +48,7 @@ body {
     font-size: 14px;
     background: #FBFBFB;
     color: #1b1b1b;
-    margin: auto;
+    margin: 0 auto;
     max-width: 800px;
     width: 100%;
     min-width: 375px;
@@ -440,7 +440,6 @@ h1>span {
 
 body {
     overflow-x: hidden;
-    margin: 0;
 }
 
 .vms {
@@ -1137,7 +1136,6 @@ p.rub {
 
 /* галерея */
 body {
-    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
